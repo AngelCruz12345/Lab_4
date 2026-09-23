@@ -9,20 +9,42 @@ using namespace std;
 int main()
 {
     string foodItem;
-    cout << "Enter your food (burger, soda, fries): ";
+    cout << "Enter your food: ";
     getline(cin, foodItem);
-    cout << "You got " << foodItem << "!" << endl;
 
+    char itemCode;
+    cout << "Enter item code: ";
+    cin >> itemCode;
 
+    int quantity;
+    cout << "Enter your amount: ";
+    cin >> quantity;
+
+    double unitPrice;
+    cout << "Enter your price: ";
+    cin >> unitPrice;
+
+    char member;
+    cout << "Are you a member (y/n): ";
+    cin >> member;
+
+    double total = unitPrice * quantity;
+
+    if (member == 'y')
+    {
+        total = total / 2;
+    }
+
+    cout << endl;
+    cout << left << setw(20) << "Item Name"
+        << setw(10) << "Code"
+        << right << setw(10) << "Price" << endl;
+
+    cout << string(40, '-') << endl;
+
+    cout << left << setw(20) << foodItem
+        << setw(10) << itemCode
+        << right << setw(10) << fixed << setprecision(2) << total << endl;
+
+    return 0;
 }
-
-// Run program: Ctrl + F5 or Debug > Start Without Debugging menu
-// Debug program: F5 or Debug > Start Debugging menu
-
-// Tips for Getting Started: 
-//   1. Use the Solution Explorer window to add/manage files
-//   2. Use the Team Explorer window to connect to source control
-//   3. Use the Output window to see build output and other messages
-//   4. Use the Error List window to view errors
-//   5. Go to Project > Add New Item to create new code files, or Project > Add Existing Item to add existing code files to the project
-//   6. In the future, to open this project again, go to File > Open > Project and select the .sln file
