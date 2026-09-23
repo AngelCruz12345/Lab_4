@@ -8,13 +8,10 @@ using namespace std;
 
 int main()
 {
-    cout << "Hello customer can I get your order?" << endl;
-    cout << "We burgers, fries, and sodas" << endl;
-
-    string food;
-    cout << "what food do you want ";
-    cin >> food;
-    cout << "you want a " << food;
+    string foodItem;
+    cout << "Enter your food (burger, soda, fries): ";
+    getline(cin, foodItem);
+    cout << "You got " << foodItem << "!" << endl;
 
 
 }
