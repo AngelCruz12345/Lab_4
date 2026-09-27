@@ -27,13 +27,23 @@ int main()
     char member;
     cout << "Are you a member (y/n): ";
     cin >> member;
+    
+    string cashierNotes;
+    cin.ignore();
+    cout << "Enter cashier notes: ";
+    getline(cin, cashierNotes);
 
-    double total = unitPrice * quantity;
+    double subtotal = unitPrice * quantity;
+    double total = subtotal;
 
-    if (member == 'y')
+    if (member == 'y' || member == 'Y')
     {
-        total = total / 2;
+        total = total * 0.90;
     }
+
+    double tax = total * 0.08;
+    total = total + tax;
+
 
     cout << endl;
     cout << left << setw(20) << "Item Name"
@@ -46,5 +56,20 @@ int main()
         << setw(10) << itemCode
         << right << setw(10) << fixed << setprecision(2) << total << endl;
 
+    cout << "Cashier notes: " << cashierNotes << endl;
+
+    cout << endl << "Inventory Audit" << endl;
+    cout << left << setw(20) << "Item Name"
+        << setw(10) << "Code"
+        << right << setw(10) << "Quantity"
+        << setw(12) << "Unit Price" << endl;
+
+    cout << string(52, '-') << endl;
+
+    cout << left << setw(20) << foodItem
+        << setw(10) << itemCode
+        << right << setw(10) << quantity
+        << setw(12) << unitPrice << endl;
+ 
     return 0;
 }
