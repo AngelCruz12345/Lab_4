@@ -1,0 +1,3 @@
+﻿  LA 2.3 Dice Roller.cpp
+C:\Users\chris\Desktop\C++\Lab 4\LA 2.3 Dice Roller\LA 2.3 Dice Roller\LA 2.3 Dice Roller.cpp(11,18): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+  LA 2.3 Dice Roller.vcxproj -> C:\Users\chris\Desktop\C++\Lab 4\LA 2.3 Dice Roller\x64\Debug\LA 2.3 Dice Roller.exe
