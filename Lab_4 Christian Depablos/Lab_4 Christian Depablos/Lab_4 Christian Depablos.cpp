@@ -4,12 +4,17 @@
 #include <iostream>
 #include <iomanip>
 #include <string>
+#include <cctype>
 using namespace std;
 
 int main()
 {
     double itemPrice;
     char foodItem;
+    char itemSize;
+    string itemName;
+    string sizeName;
+
     cout << "Select an item from the menu: " << endl;
     cout << " Items			Small (s)		Medium (m)		Large (l)" << endl
     << " A. Milk		2.50			3.50			4.50" << endl
@@ -20,18 +25,22 @@ int main()
     cin >> foodItem;
 
     
-    switch (tolower(foodItem))
+    switch (toupper(foodItem))
     {
     case 'A':
+        itemName = "Milk";
         cout << "Milk" << endl;
         break;
     case 'B':
+        itemName = "Soda";
         cout << "Soda" << endl;
         break;
     case 'C':
+        itemName = "Fries";
         cout << "Fries" << endl;
         break;
     case 'D':
+        itemName = "Shirt";
         cout << "Shirt" << endl;
         break;
     default:
@@ -40,7 +49,6 @@ int main()
     }
     if (foodItem == 'A') {
         cout << "Pick a size: Small (s), Medium (m), Large (l): " << endl;
-        char itemSize;
         cin >> itemSize;
 
         
@@ -63,7 +71,6 @@ int main()
     }
     else if (foodItem == 'B') {
         cout << "Pick a size: Small (s), Medium (m), Large (l): " << endl;
-        char itemSize;
         cin >> itemSize;
 
 
@@ -84,7 +91,6 @@ int main()
     }
     else if (foodItem == 'C') {
         cout << "Pick a size: Small (s), Medium (m), Large (l): " << endl;
-        char itemSize;
         cin >> itemSize;
 
 
@@ -105,7 +111,6 @@ int main()
     }
     else if (foodItem == 'D') {
         cout << "Pick a size: Small (s), Medium (m), Large (l): " << endl;
-        char itemSize;
         cin >> itemSize;
 
 
@@ -130,7 +135,18 @@ int main()
         return 0;
 	}
 
- 
+    switch (tolower(itemSize))
+    {
+        case 's':
+        sizeName = "Small";
+        break;
+        case 'm':
+        sizeName = "Medium";
+        break;
+        case 'l':
+        sizeName = "Large";
+        break;
+    }
     
 
 
@@ -138,9 +154,9 @@ int main()
     cout << "Enter your amount: ";
     cin >> quantity;
 
-    double unitPrice;
+    /*double unitPrice;
     cout << "Enter your price: ";
-    cin >> unitPrice;
+    cin >> unitPrice;*/
 
     char member;
     cout << "Are you a member (y/n): ";
@@ -151,7 +167,7 @@ int main()
     cout << "Enter cashier notes: ";
     getline(cin, cashierNotes);
 
-    double subtotal = unitPrice * quantity;
+    double subtotal = itemPrice * quantity;
     double total = subtotal;
 
     if (member == 'y' || member == 'Y')
@@ -165,29 +181,28 @@ int main()
 
     cout << endl;
     cout << left << setw(20) << "Item Name"
-        << setw(10) << "Code"
+        << setw(10) << "Size"
         << right << setw(10) << "Price" << endl;
 
     cout << string(40, '-') << endl;
 
-   /* cout << left << setw(20) << foodItem
-        << setw(10) << itemCode
+    cout << left << setw(20) << itemName
+        << setw(10) << itemSize
         << right << setw(10) << fixed << setprecision(2) << total << endl;
 
-    cout << "Cashier notes: " << cashierNotes << endl;*/
+    cout << "Cashier notes: " << cashierNotes << endl;
 
     cout << endl << "Inventory Audit" << endl;
     cout << left << setw(20) << "Item Name"
-        << setw(10) << "Code"
-        << right << setw(10) << "Quantity"
-        << setw(12) << "Unit Price" << endl;
+        << setw(10) << "Quantity"
+        << right << setw(10) << "unit Price"
+        << setw(12) << "Subtotal" << endl;
 
     cout << string(52, '-') << endl;
 
-   /* cout << left << setw(20) << foodItem
-        << setw(10) << itemCode
-        << right << setw(10) << quantity
-        << setw(12) << unitPrice << endl;*/
- 
+   cout << left << setw(20) << itemName
+        << setw(10) << quantity
+        << right << setw(10) << itemPrice
+        << setw(12) << subtotal << endl;
     return 0;
 }
