@@ -20,6 +20,8 @@ int main()
     cout << "Enter your amount: ";
     cin >> quantity;
 
+    //Add basic receipt output and input formatting
+
     double unitPrice;
     cout << "Enter your price: ";
     cin >> unitPrice;
